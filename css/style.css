@@ -1,0 +1,187 @@
+/* style.css - Lo-Fi Pomodoro aesthetic */
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  background: #232946;
+  color: #eebbc3;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+.background-animation {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+}
+#bg-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  filter: blur(2px) brightness(0.5);
+}
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  background: rgba(35, 41, 70, 0.85);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  margin-top: 5vh;
+  text-align: center;
+}
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+}
+#quote-bar {
+  font-style: italic;
+  margin-bottom: 1.2rem;
+  color: #b8c1ec;
+  min-height: 2.2em;
+}
+.timer-section {
+  margin-bottom: 2rem;
+}
+#timer-label {
+  font-size: 1.1rem;
+  color: #b8c1ec;
+  margin-bottom: 0.2rem;
+}
+#timer-display {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+.timer-controls button, .session-controls button, #theme-toggle {
+  background: #eebbc3;
+  color: #232946;
+  border: none;
+  border-radius: 18px;
+  padding: 0.6em 1.2em;
+  margin: 0.2em;
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.timer-controls button:hover, .session-controls button:hover, #theme-toggle:hover {
+  background: #b8c1ec;
+  color: #232946;
+}
+.session-controls {
+  margin-bottom: 0.7rem;
+}
+.session-controls .active {
+  background: #b8c1ec;
+  color: #232946;
+}
+#session-tracker {
+  font-size: 1rem;
+  color: #b8c1ec;
+  margin-top: 0.5rem;
+}
+.music-section {
+  margin-top: 1.5rem;
+  background: rgba(35, 41, 70, 0.7);
+  border-radius: 16px;
+  padding: 1rem 0.5rem;
+}
+#now-playing {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #eebbc3;
+}
+.music-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+}
+.music-controls button {
+  padding: 0.4em 1em;
+  font-size: 0.95rem;
+}
+#music-volume {
+  width: 80px;
+}
+#theme-toggle {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  font-size: 1.3rem;
+  background: #232946;
+  color: #eebbc3;
+  border: 2px solid #b8c1ec;
+  padding: 0.3em 0.7em;
+}
+.cloud {
+  position: absolute;
+  background: #fff;
+  background: linear-gradient(90deg, #e0e7ef 60%, #b8c1ec 100%);
+  border-radius: 50%;
+  opacity: 0.7;
+  filter: blur(2px);
+  z-index: 2;
+  animation: cloud-move 60s linear infinite;
+}
+.cloud1 {
+  width: 120px; height: 60px;
+  top: 10vh; left: 5vw;
+  animation-duration: 70s;
+}
+.cloud2 {
+  width: 180px; height: 80px;
+  top: 18vh; left: 60vw;
+  animation-duration: 90s;
+}
+.cloud3 {
+  width: 90px; height: 45px;
+  top: 30vh; left: 30vw;
+  animation-duration: 80s;
+}
+@keyframes cloud-move {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(60vw); }
+}
+.rain {
+  position: absolute;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 3;
+}
+.drop {
+  position: absolute;
+  bottom: 100%;
+  width: 2px; height: 40px;
+  background: linear-gradient(to bottom, #b8c1ec 60%, transparent 100%);
+  opacity: 0.5;
+  animation: rain-fall 1.2s linear infinite;
+}
+.drop:nth-child(1) { left: 10vw; animation-delay: 0s; }
+.drop:nth-child(2) { left: 20vw; animation-delay: 0.3s; }
+.drop:nth-child(3) { left: 30vw; animation-delay: 0.6s; }
+.drop:nth-child(4) { left: 40vw; animation-delay: 0.9s; }
+.drop:nth-child(5) { left: 50vw; animation-delay: 0.2s; }
+.drop:nth-child(6) { left: 60vw; animation-delay: 0.5s; }
+.drop:nth-child(7) { left: 70vw; animation-delay: 0.8s; }
+.drop:nth-child(8) { left: 80vw; animation-delay: 0.1s; }
+.drop:nth-child(9) { left: 90vw; animation-delay: 0.4s; }
+.drop:nth-child(10) { left: 95vw; animation-delay: 0.7s; }
+@keyframes rain-fall {
+  0% { bottom: 100%; opacity: 0.5; }
+  80% { opacity: 0.5; }
+  100% { bottom: 0; opacity: 0; }
+}
+@media (max-width: 500px) {
+  .container {
+    max-width: 98vw;
+    padding: 1rem 0.2rem;
+  }
+  #timer-display {
+    font-size: 2.2rem;
+  }
+}

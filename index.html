@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lo-Fi Pomodoro Timer</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="background-animation">
+    <video autoplay loop muted id="bg-video">
+      <source src="assets/bg-animation.mp4" type="video/mp4">
+    </video>
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+    <div class="cloud cloud3"></div>
+    <div class="rain">
+      <div class="drop"></div>
+      <div class="drop"></div>
+      <div class="drop"></div>
+      <div class="drop"></div>
+      <div class="drop"></div>
+      <div class="drop"></div>
+      <div class="drop"></div>
+      <div class="drop"></div>
+      <div class="drop"></div>
+      <div class="drop"></div>
+    </div>
+  </div>
+  <main class="container">
+    <h1>Lo-Fi Pomodoro</h1>
+    <div id="quote-bar"></div>
+    <section class="timer-section">
+      <div id="timer-label">Focus</div>
+      <div id="timer-display">25:00</div>
+      <div class="timer-controls">
+        <button id="start-btn">Start</button>
+        <button id="pause-btn">Pause</button>
+        <button id="reset-btn">Reset</button>
+      </div>
+      <div class="session-controls">
+        <button id="pomodoro-btn" class="active">Pomodoro</button>
+        <button id="short-break-btn">Short Break</button>
+        <button id="long-break-btn">Long Break</button>
+      </div>
+      <div id="session-tracker">Pomodoros Today: <span id="session-count">0</span></div>
+    </section>
+    <section class="music-section">
+      <div id="now-playing">Now Playing: <span id="track-title">Lo-Fi Chill Beats</span></div>
+      <div class="music-controls">
+        <button id="music-play">Play</button>
+        <button id="music-pause">Pause</button>
+        <button id="music-youtube-toggle">YouTube</button>
+        <input type="range" id="music-volume" min="0" max="1" step="0.01" value="0.5" />
+      </div>
+      <div id="youtube-player-container" style="display:none; margin-top:1em;">
+        <iframe id="youtube-player" width="320" height="180" src="https://www.youtube.com/embed/jfKfPfyJRdk?enablejsapi=1&autoplay=1&mute=1&loop=1" title="lofi hip hop radio - beats to relax/study to" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+      <audio id="lofi-audio" loop>
+        <source src="https://cdn.pixabay.com/audio/2022/10/16/audio_12b6b1b6c7.mp3" type="audio/mp3">
+      </audio>
+    </section>
+    <button id="theme-toggle">🌙</button>
+  </main>
+  <script src="js/timer.js"></script>
+  <script src="js/music.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/quotes.js"></script>
+</body>
+</html>
