@@ -8,16 +8,29 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
   <div class="background-animation">
     <video autoplay loop muted id="bg-video">
       <source src="assets/bg-animation.mp4" type="video/mp4">
     </video>
-    <div class="cloud cloud1"></div>
-    <div class="cloud cloud2"></div>
-    <div class="cloud cloud3"></div>
-    <div class="rain">
+    <div class="cloud cloud1">
+      <div class="puff puff1"></div>
+      <div class="puff puff2"></div>
+      <div class="puff puff3"></div>
+    </div>
+    <div class="cloud cloud2">
+      <div class="puff puff1"></div>
+      <div class="puff puff2"></div>
+      <div class="puff puff3"></div>
+    </div>
+    <div class="cloud cloud3">
+      <div class="puff puff1"></div>
+      <div class="puff puff2"></div>
+      <div class="puff puff3"></div>
+    </div>
+    <div class="rain" id="rain-effect">
       <div class="drop"></div>
       <div class="drop"></div>
       <div class="drop"></div>
