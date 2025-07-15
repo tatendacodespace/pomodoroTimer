@@ -12,6 +12,11 @@ body {
   top: 0; left: 0; width: 100vw; height: 100vh;
   z-index: 0;
   overflow: hidden;
+  background: linear-gradient(to bottom, #232946 0%, #1a1a2e 100%);
+  transition: background 0.7s;
+}
+body.light-mode .background-animation {
+  background: linear-gradient(to bottom, #b8e0ff 0%, #f6f6f6 100%);
 }
 #bg-video {
   width: 100vw;
@@ -21,7 +26,7 @@ body {
 }
 .container {
   position: relative;
-  z-index: 1;
+  z-index: 10;
   max-width: 400px;
   margin: 0 auto;
   padding: 2rem 1rem;
@@ -30,6 +35,9 @@ body {
   box-shadow: 0 8px 32px rgba(0,0,0,0.25);
   margin-top: 5vh;
   text-align: center;
+  /* Prevent background elements from affecting size */
+  box-sizing: border-box;
+  overflow: visible;
 }
 h1 {
   font-size: 2.2rem;
@@ -120,39 +128,53 @@ h1 {
 }
 .cloud {
   position: absolute;
-  background: #fff;
-  background: linear-gradient(90deg, #e0e7ef 60%, #b8c1ec 100%);
-  border-radius: 50%;
-  opacity: 0.7;
-  filter: blur(2px);
+  top: 10vh;
+  left: -200px;
+  width: 180px;
+  height: 80px;
   z-index: 2;
   animation: cloud-move 60s linear infinite;
 }
-.cloud1 {
-  width: 120px; height: 60px;
-  top: 10vh; left: 5vw;
-  animation-duration: 70s;
-}
-.cloud2 {
-  width: 180px; height: 80px;
-  top: 18vh; left: 60vw;
-  animation-duration: 90s;
-}
-.cloud3 {
-  width: 90px; height: 45px;
-  top: 30vh; left: 30vw;
-  animation-duration: 80s;
-}
+.cloud1 { top: 10vh; animation-duration: 70s; }
+.cloud2 { top: 22vh; left: -300px; animation-duration: 90s; }
+.cloud3 { top: 35vh; left: -150px; animation-duration: 80s; }
 @keyframes cloud-move {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(60vw); }
+  0% { left: -200px; }
+  100% { left: 110vw; }
+}
+.puff {
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0.8;
+  filter: blur(2px);
+}
+.cloud1 .puff1 { width: 80px; height: 60px; left: 20px; top: 10px; }
+.cloud1 .puff2 { width: 60px; height: 50px; left: 70px; top: 0px; }
+.cloud1 .puff3 { width: 50px; height: 40px; left: 110px; top: 20px; }
+.cloud2 .puff1 { width: 100px; height: 70px; left: 30px; top: 10px; }
+.cloud2 .puff2 { width: 70px; height: 50px; left: 90px; top: 0px; }
+.cloud2 .puff3 { width: 60px; height: 40px; left: 140px; top: 20px; }
+.cloud3 .puff1 { width: 60px; height: 40px; left: 10px; top: 10px; }
+.cloud3 .puff2 { width: 50px; height: 30px; left: 50px; top: 0px; }
+.cloud3 .puff3 { width: 40px; height: 30px; left: 90px; top: 15px; }
+body.light-mode .puff {
+  background: #fff;
+  opacity: 0.85;
+}
+body:not(.light-mode) .puff {
+  background: #e0e7ef;
+  opacity: 0.7;
 }
 .rain {
   position: absolute;
   top: 0; left: 0; width: 100vw; height: 100vh;
   pointer-events: none;
   z-index: 3;
+  transition: opacity 0.7s;
 }
+body.light-mode .rain { opacity: 0; pointer-events: none; }
+body:not(.light-mode) .rain { opacity: 1; }
 .drop {
   position: absolute;
   bottom: 100%;
